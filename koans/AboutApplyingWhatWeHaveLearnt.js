@@ -226,8 +226,30 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should find the 10001st prime", function () {
+    var num =2; //2 is the first prime number
+    var primes=[];
 
-    expect(FILL).toBe(FILL);
+    //function to check if a single number is prime
+    var primeCheck = function(number){
+      if (number==2){
+        primes.push(number);
+        return true;
+      }
+      for (var i = 2; i < number; i++) {
+        if (number%i==0){
+          return false;
+        }
+      };
+      primes.push(number);
+      return true;
+    } 
+
+    //loop to obtain 10001 prime numbers
+    for (; primes.length<10001; num++) {
+      primeCheck(num);
+    };
+
+    expect(primes[primes.length-1]).toBe(104743);
   });
   
 });
