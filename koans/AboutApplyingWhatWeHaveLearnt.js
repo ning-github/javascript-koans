@@ -155,7 +155,16 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
-    
+    var threeDig = _.range(100,1000);
+    //find all possible products
+    var products=[];
+    threeDig.forEach(function(num){
+      for (var i = 0; i < threeDig.length; i++) {
+        products.push(num*threeDig[i]);
+      };
+    });    
+
+
     expect(FILL).toBe(FILL);
   });
 
