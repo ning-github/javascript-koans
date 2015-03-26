@@ -162,7 +162,21 @@ describe("About Applying What We Have Learnt", function() {
       for (var i = 0; i < threeDig.length; i++) {
         products.push(num*threeDig[i]);
       };
-    });    
+    }); 
+    //find all palindromes within those products
+    var palindromes=[];
+    products.forEach(function(each){
+      var strung = String(each);
+      var palCheck=true;
+      for (var i = 0; i < strung.length/2; i++) {
+        if (strung[i]!==strung[strung.length-i-1]){
+          palCheck=false;
+        }
+      };
+      if (palCheck){
+        palindromes.push(each);
+      }
+    });       
 
 
     expect(FILL).toBe(FILL);
