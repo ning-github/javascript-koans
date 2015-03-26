@@ -87,15 +87,37 @@ describe("About Applying What We Have Learnt", function() {
         }
     }
 
-    expect(ingredientCount['mushrooms']).toBe(FILL_ME_IN);
+    expect(ingredientCount['mushrooms']).toBe(2);
   });
 
   it("should count the ingredient occurrence (functional)", function () {
     var ingredientCount = { "{ingredient name}": 0 };
 
+    var mushCount = _.chain(products)
+      .map(function(eachProduct){
+        return eachProduct.ingredients;
+      })
+      .flatten()
+      .reduce(function(numOfMush, ingr){
+        //to populate the ingredientCount object
+        //  - this also could have been done in the map function
+        if (ingr in ingredientCount){
+          ingredientCount[ingr]++;
+        }
+        else{
+          ingredientCount[ingr]=1;
+        }
+        //to obtain the single value for how many mushrooms are counted
+        if (ingr=="mushrooms"){
+          numOfMush++;
+        }
+        return numOfMush;
+      },0)
+      .value();
+
     /* chain() together map(), flatten() and reduce() */
 
-    expect(ingredientCount['mushrooms']).toBe(FILL_ME_IN);
+    expect(ingredientCount['mushrooms']).toBe(mushCount);
   });
 
   /*********************************************************************************/
