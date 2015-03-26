@@ -122,26 +122,56 @@ describe("About Applying What We Have Learnt", function() {
 
   /*********************************************************************************/
   /* UNCOMMENT FOR EXTRA CREDIT */
-  /*
-  it("should find the largest prime factor of a composite number", function () {
   
+  it("should find the largest prime factor of a composite number", function () {
+    //function that returns an array of all prime numbers lesser than the argument
+    var primeCandidates = function(number){
+      var primesUnderIt = [];
+      var numsUnder = _.range(2,number);
+      for (var i = 0; i < numsUnder.length; i++) {
+        var primeCheck = true;
+        for(var j=0; j< numsUnder.length;j++){
+          if (numsUnder[i]%numsUnder[j]==0 && numsUnder[i]!==numsUnder[j]){
+            primeCheck=false;
+          }
+        }
+        if (primeCheck){
+          primesUnderIt.push(numsUnder[i]);
+        }
+      };
+      return primesUnderIt;
+    }
+
+    var composite=46; //arbitrary composite number
+
+    var highestPrimeFactor = primeCandidates(composite).reduce(function(high, current){
+      if (composite%current==0){
+        high=current;
+      }
+      return high;
+    }, 2);
+
+    expect(highestPrimeFactor).toBe(23);
   });
 
   it("should find the largest palindrome made from the product of two 3 digit numbers", function () {
     
+    expect(FILL).toBe(FILL);
   });
 
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
       
-    
+    expect(FILL).toBe(FILL);
   });
 
   it("should find the difference between the sum of the squares and the square of the sums", function () {
     
+    expect(FILL).toBe(FILL);
   });
 
   it("should find the 10001st prime", function () {
 
+    expect(FILL).toBe(FILL);
   });
-  */
+  
 });
