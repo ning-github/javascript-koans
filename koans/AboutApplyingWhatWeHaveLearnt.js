@@ -184,8 +184,24 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
+    var divisors = _.range(1,21);
+    var number = Math.max.apply(null, divisors);
+
+    for (; ;) {
+      var dividedAll=true;
+      for (var i = 0; i < divisors.length; i++) {
+        if (number % divisors[i] !== 0){
+          dividedAll=false;
+          number+=(number % divisors[i]);
+          break;
+        }
+      };
+      if (dividedAll){
+        break;
+      }
+    };
       
-    expect(FILL).toBe(FILL);
+    expect(number).toBe(232792560);
   });
 
   it("should find the difference between the sum of the squares and the square of the sums", function () {
