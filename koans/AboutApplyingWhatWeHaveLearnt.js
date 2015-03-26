@@ -205,8 +205,24 @@ describe("About Applying What We Have Learnt", function() {
   });
 
   it("should find the difference between the sum of the squares and the square of the sums", function () {
+    var array = [1,2,3];
+
+    var sumOfSquares = _.chain(array)
+      .map(function(num){
+        return (num*num);
+      })
+      .reduce(function(a,b){
+        return a+b;
+      })
+      .value();
+
+    var squareOfSums = Math.pow(_.chain(array)
+      .reduce(function(a,b){
+        return a+b;
+      })
+      .value(),2);
     
-    expect(FILL).toBe(FILL);
+    expect(Math.abs(sumOfSquares-squareOfSums)).toBe(22);
   });
 
   it("should find the 10001st prime", function () {
