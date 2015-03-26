@@ -176,10 +176,11 @@ describe("About Applying What We Have Learnt", function() {
       if (palCheck){
         palindromes.push(each);
       }
-    });       
+    }); 
+    
+    var maxPal = (Math.max.apply(null, palindromes));      
 
-
-    expect(FILL).toBe(FILL);
+    expect(maxPal).toBe(906609);
   });
 
   it("should find the smallest number divisible by each of the numbers 1 to 20", function () {
